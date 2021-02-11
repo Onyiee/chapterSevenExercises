@@ -20,8 +20,8 @@ class SalesCommissionTest {
 
     @Test
     void testThatPayForSalesPeopleCanBeCalculated(){
-        salesCommission.setGrossSales(500);
+        salesCommission.setGrossSales(5000);
         salesCommission.setPayForSalesPeople();
-        assertEquals(650, salesCommission.getPayForSalesPeople());
+        assertEquals(650,salesCommission.getPayForSalesPeople());
     }
 }

@@ -29,7 +29,7 @@ public class SalesCommission {
     }
 
     public void setPayForSalesPeople() {
-        this.payForSalesPeople = basePay + (percentageOnSales * grossSales);
+        this.payForSalesPeople = this.basePay + (percentageOnSales * grossSales);
         salesPeoplePayRoll(payForSalesPeople);
     }
 
@@ -62,8 +62,8 @@ public class SalesCommission {
     }
 
     private int conditionsCheck(double payForSalesPeople) {
-        int condition = (int) payForSalesPeople/100;
-        return condition;
+        int conditions = (int) payForSalesPeople/100;
+        return conditions;
     }
 
     public double getPayForSalesPeople() {
