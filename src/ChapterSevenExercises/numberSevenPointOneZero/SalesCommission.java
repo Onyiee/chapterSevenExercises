@@ -18,55 +18,82 @@ package ChapterSevenExercises.numberSevenPointOneZero;
 //        Summarize the results in tabular format
 
 public class SalesCommission {
-    private final int basePay = 200;
-    public int [] setSalesCommission = new int[9];
-    private double grossSales;
-    private double payForSalesPeople;
-    public double percentageOnSales = 0.09;
+    private  int basePay = 200;
+    public int [] salesCommissionArray = new int[9];
+    private int grossSales;
+    private int payForSalesPeople;
+    private int conditions;
 
-    public void setGrossSales(double grossSales) {
+
+    public void setGrossSales(int grossSales) {
         this.grossSales = grossSales;
     }
 
     public void setPayForSalesPeople() {
-        this.payForSalesPeople = this.basePay + (percentageOnSales * grossSales);
+        payForSalesPeople = basePay + (9 * grossSales)/100;
         salesPeoplePayRoll(payForSalesPeople);
     }
 
-    private void salesPeoplePayRoll(double payForSalesPeople) {
+    private void salesPeoplePayRoll(int payForSalesPeople) {
         int conditions = conditionsCheck(payForSalesPeople);
         payRollUpdater(conditions);
+
     }
+    private int conditionsCheck(int payForSalesPeople) {
+         conditions = payForSalesPeople/100;
+         return conditions;
+
+    }
+
 
     private void payRollUpdater(int conditions) {
         switch (conditions){
-            case 2: setSalesCommission[0] +=1;
+            case 2: salesCommissionArray[0] +=1;
             break;
-            case 3: setSalesCommission[1] +=1;
+            case 3:salesCommissionArray[1] +=1;
             break;
-            case 4: setSalesCommission[2] +=1;
+            case 4:salesCommissionArray[2] +=1;
             break;
-            case 5: setSalesCommission[3] +=1;
+            case 5: salesCommissionArray[3] +=1;
             break;
-            case 6:setSalesCommission[4] +=1;
+            case 6:salesCommissionArray[4] +=1;
             break;
-            case 7: setSalesCommission[5] +=1;
+            case 7: salesCommissionArray[5] +=1;
             break;
-            case 8: setSalesCommission[6] +=1;
+            case 8: salesCommissionArray[6] +=1;
             break;
-            case 9: setSalesCommission[7] +=1;
+            case 9: salesCommissionArray[7] +=1;
             break;
-            default: setSalesCommission[8] +=1;
+            default: salesCommissionArray[8] +=1;
 
         }
     }
 
-    private int conditionsCheck(double payForSalesPeople) {
-        int conditions = (int) payForSalesPeople/100;
-        return conditions;
-    }
 
     public double getPayForSalesPeople() {
         return payForSalesPeople;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Salary: frequency%n"+
+                "$200-299: %d%n" +
+                "$300-399: %d%n" +
+                "$400-499: %d%n" +
+                "$500-599: %d%n" +
+                "$600-699: %d%n" +
+                "$700-799: %d%n" +
+                "$800-899: %d%n" +
+                "$900-999: %d%n" +
+                "$1000 and above: %d%n",
+                salesCommissionArray[0],
+                salesCommissionArray[1],
+                salesCommissionArray[2],
+                salesCommissionArray[3],
+                salesCommissionArray[4],
+                salesCommissionArray[5],
+                salesCommissionArray[6],
+                salesCommissionArray[7],
+                salesCommissionArray[8]);
     }
 }

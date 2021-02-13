@@ -22,6 +22,7 @@ class SalesCommissionTest {
     void testThatPayForSalesPeopleCanBeCalculated(){
         salesCommission.setGrossSales(5000);
         salesCommission.setPayForSalesPeople();
+
         assertEquals(650,salesCommission.getPayForSalesPeople());
     }
 }
